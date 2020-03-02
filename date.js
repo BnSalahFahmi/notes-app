@@ -6,12 +6,24 @@ Date.prototype.timeNow = function () {
     return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
 }
 
+const getCurrentDate = function () {
+    const newDate = new Date()
+    return newDate.today()
+}
+
+const getCurrentTime = function () {
+    const newDate = new Date()
+    return newDate.timeNow()
+}
+
 const getCurrentDateTime = function () {
     const newDate = new Date()
     return newDate.today() + " @ " + newDate.timeNow()
 }
 
 module.exports = {
+    getCurrentDate: getCurrentDate,
+    getCurrentTime: getCurrentTime,
     getCurrentDateTime: getCurrentDateTime
 }
 
