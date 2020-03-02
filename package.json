@@ -11,5 +11,8 @@
     "url": "git+https://github.com/BnSalahFahmi/notes-app.git"
   },
   "author": "Fahmi BEN SALAH",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^15.1.0"
+  }
 }
