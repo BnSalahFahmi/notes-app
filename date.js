@@ -6,17 +6,17 @@ Date.prototype.timeNow = function () {
     return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
 }
 
-const getCurrentDate = function () {
+const getCurrentDate = _ => {
     const newDate = new Date()
     return newDate.today()
 }
 
-const getCurrentTime = function () {
+const getCurrentTime = _ => {
     const newDate = new Date()
     return newDate.timeNow()
 }
 
-const getCurrentDateTime = function () {
+const getCurrentDateTime = _ => {
     const newDate = new Date()
     return newDate.today() + " @ " + newDate.timeNow()
 }
