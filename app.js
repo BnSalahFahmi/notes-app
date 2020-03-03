@@ -1,5 +1,6 @@
 const yargs = require('yargs')
 const notes = require('./notes')
+const chalk = require('chalk')
 
 // Customize yargs version
 yargs.version('1.5.0')
@@ -38,6 +39,16 @@ yargs.command({
     },
     handler(argv) {
         notes.removeNote(argv.title)
+    }
+})
+
+// Create list command
+yargs.command({
+    command: 'list',
+    describe: 'List all notes !',
+    handler() {
+        console.log(chalk.inverse('Your Notes :'))
+        console.table(notes.listNotes())
     }
 })
 
