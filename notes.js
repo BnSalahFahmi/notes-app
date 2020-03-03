@@ -4,8 +4,8 @@ const dateUtils = require('./date')
 
 const addNote = (title, body) => {
     const notes = loadNotes()
-    const duplicateNotes = notes.filter(note => note.title === title)
-    if (duplicateNotes.length == 0) {
+    const duplicateNote = notes.find(note => note.title === title)
+    if (!duplicateNote) {
         notes.push({
             title: title,
             body: body,
@@ -30,6 +30,16 @@ const removeNote = title => {
     }
 }
 
+const readNote = title => {
+    const notes = loadNotes()
+    const note = notes.find(note => note.title == title)
+    if (note) {
+        return note
+    } else {
+        return chalk.red('Note not found!')
+    }
+}
+
 const listNotes = _ => loadNotes()
 
 const loadNotes = _ => {
@@ -47,5 +57,6 @@ const saveNotes = notes => fs.writeFileSync('notes.json', JSON.stringify(notes))
 module.exports = {
     addNote: addNote,
     removeNote: removeNote,
+    readNote, readNote,
     listNotes: listNotes
 }
